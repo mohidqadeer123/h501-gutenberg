@@ -3,7 +3,7 @@ from .utils import load_authors, load_metadata
 
 
 
-def list_authors(by_languages = True, alias - True):
+def list_authors(by_languages = True, alias = True):
     '''Function to list authors in order of translation count'''
 
     #Load Data

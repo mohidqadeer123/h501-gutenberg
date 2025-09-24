@@ -1,17 +1,20 @@
-import pandas as pd
+# Import the data from gutenberg project
 
-def load_gutenberg_data():
+import pandas as pd
+def load_authors():
+    '''Load authors data as data frame'''
     url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-06-03/gutenberg_authors.csv"
     return pd.read_csv(url)
 
-def get_alias_translation_counts():
-    df = load_gutenberg_data()
 
-    # Keep rows with non-null alias
-    df = df.dropna(subset=["alias"])
 
-    # Count how many translations per alias
-    counts = (df.groupby("alias")["language"]
-                .nunique()
-                .sort_values(ascending=False))
-    return counts.index.tolist()   # list of aliases ordered by count
+def load_languages():
+    '''Load languages data as data frame'''
+    url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-06-03/gutenberg_languages.csv"
+    return pd.read_csv(url)
+
+
+def load_metadata():
+    '''Load metadata data as data frame'''
+    url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-06-03/gutenberg_metadata.csv"
+    return pd.read_csv(url)
